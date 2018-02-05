@@ -1,6 +1,6 @@
 {
 "type": "FeatureCollection",
-"name": "projecte",
+"name": "cementerio",
 "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
 { "type": "Feature", "properties": { "AREA": 51.79865, "PERIMETER": 42.52014, "CEMGI_": 2, "CEMGI_ID": 49, "TIPOLOGIA": null, "NOMDPT": null, "CODIDPT": null, "ZONADPT": null }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 2.837216907269565, 41.97316422562497 ], [ 2.83743194761921, 41.973180471001371 ], [ 2.83744768535127, 41.973161849286093 ], [ 2.837418028293614, 41.973148297380057 ], [ 2.837417058617397, 41.973149917221896 ], [ 2.837406308667889, 41.973153054410766 ], [ 2.837221435158471, 41.973139733741561 ], [ 2.837216907269565, 41.97316422562497 ] ] ] } },
