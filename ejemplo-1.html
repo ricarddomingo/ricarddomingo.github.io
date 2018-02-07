@@ -1,0 +1,84 @@
+<html lang="es">
+  <head>
+    <title>Ejemplo 1 Leaflet-controles</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="autor" />
+    <meta name="description" content="descripción página">
+    <meta name="robots" content="index,follow">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.0/leaflet.css" />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+      #map {
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.0/leaflet.js"></script>
+    <script>
+      var map, osm, esri, nubes,Thunderforest_TransportDark,JusticeMap_asian;
+      var controlCapas;
+      var controlEscala;
+
+      function init() {
+        map = L.map('map').setView([41.6863, 1.8382], 8);
+        esri = L.tileLayer(
+          'http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+            maxZoom: 17,
+            minZoom: 1,
+            attribution: 'Tiles © Esri',
+          }).addTo(map);
+        osm = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 19,
+
+          minZoom: 1,
+          attribution: 'OSM'
+        });
+        nubes =
+          L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: 'OpenWeatherMap',
+            opacity: 0.5
+          });
+
+        Thunderforest_TransportDark =
+          L.tileLayer('https://{s}.tile.thunderforest.com/transport-dark/{z}/{x}/{y}.png?apikey={apikey}', {
+          	attribution: '&copy; <a href="http://www.thunderforest.com/">Thunderforest</a>, &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+	          apikey: '<your apikey>',
+	          maxZoom: 22
+          });
+
+        JusticeMap_asian = 
+          L.tileLayer('http://www.justicemap.org/tile/{size}/asian/{z}/{x}/{y}.png', {
+	          attribution: '<a href="http://www.justicemap.org/terms.php">Justice Map</a>',
+          	size: 'county',
+	          bounds: [[14, -180], [72, -56]]
+          });
+
+
+        var baseMaps = {
+          "Orto_esri": esri,
+          "Mapa_osm": osm,
+          "Thunder":Thunderforest_TransportDark
+        };
+        var overlayMaps = {
+          "Mapagris": nubes,
+          "Justice":JusticeMap_asian
+          
+        };
+        controlCapas = L.control.layers(baseMaps, overlayMaps);
+        controlCapas.addTo(map);
+        controlEscala = L.control.scale();
+        controlEscala.addTo(map);
+      }
+    </script>
+  </head>
+
+  <body onLoad="init()">
+    <div id="map"></div>
+  </body>
+  </html>   

@@ -17,7 +17,20 @@
                     height: 100%;
                     width: 100%;
                   }
-                  #coord{position: absolute;top:10px;left: 100px;width: 200px;height: 60px;background-color:aliceblue;border: 1px solid red;z-index: 1000;opacity: 0.8;border-radius: 12px;padding: 15px;font-size: 16px; }
+                  #coord{
+                    position: absolute;
+                    top: 10px;
+                    left: 100px;
+                    width: 186px;
+                    height: 39px;
+                    background-color: aliceblue;
+                    border: 1px solid red;
+                    z-index: 1000;
+                    opacity: 0.8;
+                    border-radius: 12px;
+                    padding: 10px;
+                    font-size: 15px;
+                  }
                 </style>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.0/leaflet.js"></script>
                 <script>
@@ -32,19 +45,19 @@
                         maxZoom: 17,
                         minZoom: 1,
                         attribution: 'Tiles © Esri',
-                      }).addTo(map);
+                      });
                     osm = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                       maxZoom: 19,
 
                       minZoom: 1,
                       attribution: 'OSM'
-                    });
+                    }).addTo(map);
                     nubes =
                       L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
                         maxZoom: 19,
                         attribution: 'OpenWeatherMap',
                         opacity: 0.5
-                      });
+                      }).addTo(map);
                     var baseMaps = {
                       "Orto_esri": esri,
                       "Mapa_osm": osm
@@ -52,25 +65,24 @@
                     var overlayMaps = {
                       "Mapagris": nubes
                     };
-                    controlCapas = L.control.layers(baseMaps, overlayMaps);
+                    controlCapas = L.control.layers(baseMaps, overlayMaps,{collapsed:false});
                     controlCapas.addTo(map);
                     controlEscala = L.control.scale();
                     controlEscala.addTo(map);
 
-                        map.on("mousemove",function(e){
-                            console.info(e.latlng.lat+","+ e.latlng.lng);
-                            document.getElementById("coord").innerHTML = "LAT:"+parseFloat(e.latlng.lat).toFixed(5)+
-                            "<br>LONG:"+parseFloat(e.latlng.lat).toFixed(5);
-
+                        map.on('mousemove',function(e){
+                       // console.info( e.latlng.lat+","+ e.latlng.lng);
+                       document.getElementById("coord").innerHTML = "LAT:"+parseFloat(e.latlng.lat).toFixed(5)+
+                       "<br>LON:"+ parseFloat(e.latlng.lng).toFixed(5);
                         })
+
                   }
                 </script>
               </head>
-              
-              <body onLoad="init()">
-                <div id="coord"></div>                
-                <div id="map"></div>
 
-                </div>
+              <body onLoad="init()">
+                <div id="coord"></div> 
+                
+                <div id="map"></div>
               </body>
               </html>
