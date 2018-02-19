@@ -1,6 +1,6 @@
 <html lang="es">
               <head>
-                <title>Pràctica-Cementiri</title>
+                <title>Pràctica-Fosses Comuns</title>
                 <meta charset="utf-8" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <meta name="author" content="autor" />
@@ -73,11 +73,7 @@
 	                    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
                     });
 
-                    var ull = L.tileLayer('http://appmaps.icgc.cat/index.html?', {
-	                    maxZoom: 18,
-	                    attribution: 'ICGC'
-                    });
-
+                                  
                     var Mapbox_capa = L.tileLayer ('https://api.mapbox.com/styles/v1/ricarddomingo/cjd9ehljn9uhb2rmt7waawkth/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoicmljYXJkZG9taW5nbyIsImEiOiJjamNqZ3IzMDUyNTh3MndwYWRpcTNjbjU2In0.plzKPligh2NtQVhGzT7EKA',{
                         maxZoom: 18,
                         attribution: 'Mapbox'
@@ -117,8 +113,8 @@
                       "Blanc i negre": OpenStreetMap_BlackAndWhite  ,
                       "Ortofoto": esri,
                       "Mapa": osm,
-                      "Mapbox":Mapbox_capa,
-                      "Catalunya Anys 40": ull
+                      "Mapbox":Mapbox_capa
+                      
 
                       
                       
