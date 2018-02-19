@@ -89,7 +89,7 @@
                       maxZoom: 19,
                       minZoom: 14,
                       onEachFeature: function(feature, layer) {
-                        popupContent = "<b>" + feature.properties.Clau + "</b><br>Bàndol:" + feature.properties.Bandol + "<br>Tipus de fossa: " + feature.properties.TipusFossa +"<p>fitxa<a href="+feature.properties.Fitxa+">link</a></p>";
+                        popupContent = "<b>" + feature.properties.Clau + "</b><br>Bàndol:" + feature.properties.Bandol + "<br>Tipus de fossa: "+feature.properties.TipusFossa+"<p>fitxa<a href="+feature.properties.Fitxa+">link</a></p>";
                         layer.bindPopup(popupContent);
                       },
                       pointToLayer: function(feature, latlng) {
