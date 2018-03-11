@@ -88,7 +88,7 @@
                       maxZoom: 19,
                       minZoom: 14,
                       onEachFeature: function(feature, layer) {
-                        popupContent = "<b>Area:" + feature.properties.AREA + "</b><br>Perimetre:" + feature.properties.PERIMETER + ":" + feature.properties.CEMGI_ID + "</b>";
+                        popupContent = "<b>Area:" + feature.properties.AREA + "</b><br>Perimetre:" + feature.properties.PERIMETER + "<br>ID:" + feature.properties.CEMGI_ID + "</b>";
                         layer.bindPopup(popupContent);
                       },
                       style: function(feature) {
