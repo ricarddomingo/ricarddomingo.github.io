@@ -79,7 +79,7 @@
 
                     });
 
-                    cemen = new L.GeoJSON.AJAX('js/sepultures.geojson', {
+                    sepultures = new L.GeoJSON.AJAX('js/sepultures.geojson', {
                       maxZoom: 19,
                       minZoom: 14,
                       onEachFeature: function(feature, layer) {
@@ -139,7 +139,8 @@
                 		var overlayMaps = {
                 			
                             
-                            "Cementiri Girona":cemen
+                            "Cementiri Girona":cemen,
+                            "Sepultures":sepultures
 
                 		};
             
