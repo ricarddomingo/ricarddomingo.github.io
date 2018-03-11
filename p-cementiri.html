@@ -79,29 +79,7 @@
 
                     });
 
-                    sepultures = new L.GeoJSON.AJAX('js/sepultures.geojson', {
-                      maxZoom: 19,
-                      minZoom: 14,
-                      onEachFeature: function(feature, layer) {
-                        popupContent = "<b>Localitzador:" + feature.properties.LOCALITZAD + "</b><br>Tipologia:" + feature.properties.TIPOLOGIA;
-                        layer.bindPopup(popupContent);
-                      },
-                      style: function(feature) {
-                          
-                                    return  {                       
-                                    fillColor: "#FF3333",
-                                    color: "#000000",
-                                    weight: 0.8,
-                                    opacity: 1,
-                                    fillOpacity: 0.8
-                                    };
-                          
-                      }
-                    }).addTo(map);
-
-
-
-
+          
 
                     cemen = new L.GeoJSON.AJAX('js/cemen.geojson', {
                       maxZoom: 19,
@@ -139,8 +117,8 @@
                 		var overlayMaps = {
                 			
                             
-                            "Cementiri Girona":cemen,
-                            "Sepultures":sepultures
+                            "Cementiri Girona":cemen
+                            
 
                 		};
             
